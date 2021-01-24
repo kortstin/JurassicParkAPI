@@ -1,19 +1,34 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title do %>
+  <%= @dinosaur.name %> &ndash; <%= DateTime.now.to_s(:nice_date)%>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @dinosaur.name %>
-</p>
 
-<p>
-  <strong>Species:</strong>
-  <%= @dinosaur.species %>
-</p>
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+      <p class="panel-heading">
+        <%= @dinosaur.name %> :
+        <%= @dinosaur.cage.name %>
+      </p>
 
-<p>
-  <strong>Diet type:</strong>
-  <%= @dinosaur.diet_type %>
-</p>
+      <div class="panel-block">
+        Species: <%= @dinosaur.species %>
+      </div>
 
-<%= link_to 'Edit', edit_dinosaur_path(@dinosaur) %> |
-<%= link_to 'Back', dinosaurs_path %>
+      <div class="panel-block">
+        Diet Type: <%= @dinosaur.diet_type %>
+      </div>
+    </nav>
+
+    <div class="columns is-mobile">
+      <div class="column">
+        <%= link_to 'Edit', edit_dinosaur_path(@dinosaur), class: "button is-gray" %>
+        <%= link_to 'Delete', dinosaur_path(@dinosaur), method: :delete, data: { confirm: "Are you sure?"},
+        class: "button is-gray" %>
+      </div>
+      <div class="column">
+        
+      </div>
+    </div>
+  </div>
+</div>

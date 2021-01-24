@@ -1,23 +1,34 @@
+<% content_for :title do %>
+  <%= @cage.name %> &ndash; <%= DateTime.now.to_s(:nice_date)%>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cage.name %>
-</p>
 
-<p>
-  <strong>Max capacity:</strong>
-  <%= @cage.max_capacity %>
-</p>
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+      <p class="panel-heading">
+        <%= @cage.name %> :
+        <%= @cage.power_status %>
+      </p>
 
-<p>
-  <strong>Number of dinosaurs:</strong>
-  <%= @cage.number_of_dinosaurs %>
-</p>
+      <div class="panel-block">
+        Max capacity: <%= @cage.max_capacity %>
+      </div>
 
-<p>
-  <strong>Power status:</strong>
-  <%= @cage.power_status %>
-</p>
+      <div class="panel-block">
+        Number of dinosaurs: <%= @cage.number_of_dinosaurs %>
+      </div>
+    </nav>
 
-<%= link_to 'Edit', edit_cage_path(@cage) %> |
-<%= link_to 'Back', cages_path %>
+    <div class="columns is-mobile">
+      <div class="column">
+        <%= link_to 'Edit', edit_cage_path(@cage), class: "button is-gray" %>
+        <%= link_to 'Delete', cage_path(@cage), method: :delete, data: { confirm: "Are you sure?"},
+        class: "button is-gray" %>
+      </div>
+      <div class="column">
+        
+      </div>
+    </div>
+  </div>
+</div>
