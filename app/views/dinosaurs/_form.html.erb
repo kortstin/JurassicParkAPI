@@ -1,29 +1,36 @@
 <%= form_with(model: dinosaur) do |form| %>
   <% if dinosaur.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dinosaur.errors.count, "error") %> prohibited this dinosaur from being saved:</h2>
+    <div class="message-is-danger">
+      <div class="message-header">
+        <p><%= pluralize(dinosaur.errors.count, "error") %> prohibited this dinosaur from being saved:</p>
+      </div>
 
-      <ul>
-        <% dinosaur.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <div class="message-body">
+
+        <ul>
+          <% dinosaur.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :species %>
-    <%= form.text_field :species %>
+    <%= form.label :species, class: "label" %>
+    <%= form.text_field :species, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :diet_type %>
-    <%= form.text_field :diet_type %>
+    <%= form.label :diet_type, class: "label" %>
+    <div class="select">
+      <%= form.select :diet_type, ['Carnivore', 'Herbivore']%> 
+    </div>
   </div>
 
   <div class="field">
@@ -31,10 +38,9 @@
     <div class="select">
       <%= form.select :cage_id, Cage.all.collect {|u| [u.name, u.id]} %>
     </div>
-    
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "button is-success" %>
   </div>
 <% end %>

@@ -1,32 +1,39 @@
 <%= form_with(model: cage) do |form| %>
   <% if cage.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cage.errors.count, "error") %> prohibited this cage from being saved:</h2>
+    <div class="message-is-danger">
+      <div class="message-header">
+        <p><%= pluralize(cage.errors.count, "error") %> prohibited this cage from being saved:</p>
+      </div>
 
-      <ul>
-        <% cage.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <div class="message-body">
+
+        <ul>
+          <% cage.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :max_capacity %>
-    <%= form.number_field :max_capacity %>
+    <%= form.label :max_capacity, class: "label" %>
+    <%= form.number_field :max_capacity, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :power_status %>
-    <%= form.text_field :power_status %>
+    <%= form.label :power_status, class: "label" %>
+    <div class="select">
+      <%= form.select :power_status, ['ACTIVE', 'DOWN']%>
+    </div> 
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "button is-success" %>
   </div>
 <% end %>
