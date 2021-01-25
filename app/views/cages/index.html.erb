@@ -11,7 +11,7 @@
         </header>
         <div class="card-content">
           <div class="content">
-            <p><span class="has-text-weight-bold">Current Capacity: <%= cage.number_of_dinosaurs %></span>/ <%= cage.max_capacity %><p>
+            <p><span class="has-text-weight-bold">Current Capacity: <%= cage.dinosaur_count %></span> / <%= cage.max_capacity %><p>
             <p><span class="has-text-weight-bold">Power Status: <%= cage.power_status %></span><p>
             <p class="italic">Logged <%= time_ago_in_words(cage.created_at) %> ago <p>
           </div>
