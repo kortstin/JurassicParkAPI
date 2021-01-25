@@ -34,14 +34,6 @@ class DinosaursController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @dinosaur.errors, status: :unprocessable_entity }
       end
-
-      if @dinosaur.cage.at_capacity?
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @dinosaur.errors, status: :unprocessable_entity }
-      else
-        format.html { redirect_to @dinosaur, notice: "Dinosaur was successfully created." }
-        format.json { render :show, status: :created, location: @dinosaur }
-      end
     end
   end
 
@@ -56,6 +48,7 @@ class DinosaursController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @dinosaur.errors, status: :unprocessable_entity }
       end
+
     end
   end
 
