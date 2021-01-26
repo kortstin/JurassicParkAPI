@@ -2,7 +2,7 @@ class Cage < ApplicationRecord
     has_many :dinosaurs
     validates :name, :max_capacity, :power_status, presence: true
     validates_uniqueness_of :name
-    validate :has_dinosaurs, on: :update
+    validate :check_dinosaur_status_on_shutdown
 
     def dinosaur_count
         dinosaurs.count
@@ -34,9 +34,9 @@ class Cage < ApplicationRecord
     end
 =end
 
-    def has_dinosaurs
-        if dinosaur_count > 0
-        errors.add(:power_status, "Cage cannot be powered down, while it contains dinosaurs")
+    def check_dinosaur_status_on_shutdown
+        if dinosaur_count > 0 and power_status == "DOWN"
+            errors.add(:power_status, "Cage cannot be powered down, while it contains dinosaurs")
         end
     end
 
