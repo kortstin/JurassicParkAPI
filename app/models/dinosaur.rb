@@ -6,7 +6,7 @@ class Dinosaur < ApplicationRecord
     validate :is_cage_powered_down
     validate :cage_contains_diet_mismatch
 
-
+=begin
     def set_cage(c)
 
         return false if c.at_capacity?
@@ -20,6 +20,7 @@ class Dinosaur < ApplicationRecord
         cage = c
 
     end
+=end
 
     def is_herbivore?
         return diet_type == "Herbivore"

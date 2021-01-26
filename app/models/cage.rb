@@ -24,6 +24,7 @@ class Cage < ApplicationRecord
         dinosaurs.where(diet_type:"Carnivore").count > 0
     end
 
+=begin
     def belongs_in_cage(diet)
         return true if dinosaur_count == 0
         return false if diet != 'Carnivore' && has_carnivore
@@ -31,6 +32,7 @@ class Cage < ApplicationRecord
         return true if dinosaurs.where(diet_type: diet).count > 0
         return false
     end
+=end
 
     def has_dinosaurs
         if dinosaur_count > 0
