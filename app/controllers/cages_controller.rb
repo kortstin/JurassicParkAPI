@@ -48,6 +48,14 @@ class CagesController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @cage.errors, status: :unprocessable_entity }
       end
+
+      if @cage.is_powered_down? == true
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @cage.errors, status: :unprocessable_entity }
+      else
+        format.html { redirect_to @cage, notice: "Cage was successfully updated." }
+        format.json { render :show, status: :ok, location: @cage }
+      end
     end
   end
 
