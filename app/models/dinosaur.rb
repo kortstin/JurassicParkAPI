@@ -52,5 +52,13 @@ class Dinosaur < ApplicationRecord
         end
     end
 
+    def self.search(search)
+        if search 
+            where(["name LIKE ?","%#{search}%"])
+        else
+            Dinosaur.all
+        end
+    end 
+
 
 end

@@ -40,4 +40,12 @@ class Cage < ApplicationRecord
         end
     end
 
+    def self.search(search)
+        if search 
+            where(["name LIKE ?","%#{search}%"])
+        else
+            Cage.all
+        end
+    end 
+
 end

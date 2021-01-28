@@ -1,0 +1,13 @@
+<h1>Advanced Search</h1>
+
+<%= form_with model: @dinosaur_search do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :species %>
+    <%= f.select :species, options_for_select(@species), include_blank: true %><br>
+
+    <%= f.submit "Search" %>
+<% end %>
+
+<p><%= link_to "Back", '/dinosaurs' %></p>

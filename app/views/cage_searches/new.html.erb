@@ -1,0 +1,13 @@
+<h1>Advanced Search</h1>
+
+<%= form_with model: @cage_search do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :power_status %>
+    <%= f.select :power_status, options_for_select(@power_statuses), include_blank: true %><br>
+
+    <%= f.submit "Search" %>
+<% end %>
+
+<p><%= link_to "Back", '/cages' %></p>

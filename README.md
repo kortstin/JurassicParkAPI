@@ -66,7 +66,29 @@ Run `rails s` for a dev server. It will be servered on `http://localhost:3000/`,
   - Params can be any combination of `name={name}&species={species}&diet_type={diet_type}`
 - Destroy Dinosaur - DELETE `http://localhost:3000/dinosaurs/:id`
   - Removes the given dinosaur from the database.
+- Dinosaur Search - GET `http://localhost:3000/dinosaur_searches/new{params}`
+  - Returns all dinosaurs that match given search name
+  - Advanced search offers filter parameter `species={species}`
+- Cage Search - GET `http://localhost:3000/cage_searches/new{params}`
+  - Returns all cages that match given search name
+  - Advanced search offers filter parameter `power_status={power_status}`
 
+
+#### Cage Searches
+
+| Parameter | Sample Value | Description |
+|:----------:|:------------:|:------------|
+| name_search | North Cage | All cages with that name; searches for similar match. |
+| power_status_search | ACTIVE | All animals of that species; searches for similar match. |
+
+
+
+#### Dinosaur Searches
+
+| Parameter | Sample Value | Description |
+|:----------:|:------------:|:------------|
+| name_search |  Blue | All dinosaurs with that name; searches for similar match . |
+| species_search |  Velociraptor | All dinosaurs of that species; searches for similar match. |
 
 ## Suggested Production Thoughts
 

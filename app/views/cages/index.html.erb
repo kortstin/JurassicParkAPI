@@ -2,6 +2,18 @@
   Park Management System - <%= DateTime.now.to_s(:nice_date) %>
 <% end %>
 
+
+<div class="columns mt-2 is-centered">
+  <%= form_with(url: '/cages', method: 'get', local: true) do %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
+<div class="columns is-centered mt-6">
+  <%= link_to "Advanced Search", new_cage_search_path %>
+</div>
+
 <div class="columns mt-6 is-centered">
   <% @cages.each do |cage| %>
   <div class="column is-one-quarter">

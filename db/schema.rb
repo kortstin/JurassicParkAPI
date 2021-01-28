@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_134125) do
+ActiveRecord::Schema.define(version: 2021_01_28_172730) do
+
+  create_table "cage_searches", force: :cascade do |t|
+    t.string "name"
+    t.string "power_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "cages", force: :cascade do |t|
     t.string "name"
     t.integer "max_capacity"
     t.integer "number_of_dinosaurs"
     t.string "power_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dinosaur_searches", force: :cascade do |t|
+    t.string "name"
+    t.string "species"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

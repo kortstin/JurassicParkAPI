@@ -4,7 +4,7 @@ class DinosaursController < ApplicationController
   # GET /dinosaurs
   # GET /dinosaurs.json
   def index
-    @dinosaurs = Dinosaur.all
+    @dinosaurs = Dinosaur.search(params[:search])
   end
 
   # GET /dinosaurs/1
@@ -70,6 +70,6 @@ class DinosaursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dinosaur_params
-      params.require(:dinosaur).permit(:name, :species, :diet_type, :cage_id)
+      params.require(:dinosaur).permit(:name, :species, :diet_type, :cage_id, :search)
     end
 end

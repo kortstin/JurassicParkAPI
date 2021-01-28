@@ -1,0 +1,29 @@
+<h1>Search Results</h1>
+<p><%= link_to "Back", new_cage_search_path %></p>
+
+<% if @cage_search.search_cages.empty? %>
+    <p>No Cages were found.</p>
+<% else %>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Max Capacity</th>
+                <th>Number of Dinosaurs</th>
+                <th colspan="3"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @cage_search.search_cages.each do |cage| %>
+            <tr>
+                <td><%= cage.name %></td>
+                <td><%= cage.power_status %></td>
+                <td><%= cage.dinosaur_count %></td>
+                <td><%= link_to 'Edit', edit_cage_path(cage) %></td>
+                <td><%= link_to 'Delete', cage_path(cage), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+        </tbody>
+</table>
+<% end %>

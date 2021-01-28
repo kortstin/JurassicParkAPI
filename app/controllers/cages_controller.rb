@@ -4,7 +4,7 @@ class CagesController < ApplicationController
   # GET /cages
   # GET /cages.json
   def index
-    @cages = Cage.all
+    @cages = Cage.search(params[:search])
   end
 
   # GET /cages/1
@@ -48,14 +48,6 @@ class CagesController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @cage.errors, status: :unprocessable_entity }
       end
-
-      if @cage.is_powered_down? == true
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cage.errors, status: :unprocessable_entity }
-      else
-        format.html { redirect_to @cage, notice: "Cage was successfully updated." }
-        format.json { render :show, status: :ok, location: @cage }
-      end
     end
   end
 
@@ -77,6 +69,6 @@ class CagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cage_params
-      params.require(:cage).permit(:name, :max_capacity, :number_of_dinosaurs, :power_status)
+      params.require(:cage).permit(:name, :max_capacity, :number_of_dinosaurs, :power_status, :search)
     end
 end

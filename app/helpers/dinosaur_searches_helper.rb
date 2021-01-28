@@ -1,0 +1,2 @@
+module DinosaurSearchesHelper
+end
