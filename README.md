@@ -105,6 +105,7 @@ Run `rails s` for a dev server. It will be servered on `http://localhost:3000/`,
 
 • FactoryBot and Faker issues when testing. May be related to installation issues.
 • When destroying a cage with dinosaurs in it, a FOREIGN KEY constraint failed error is thrown. This error needs to be gracefully handled.
+• Issue with some Rspec tests failing due to model validation conflict. Researching possible fix now.
 
 ## Technologies Used
 
