@@ -92,7 +92,19 @@ Run `rails s` for a dev server. It will be servered on `http://localhost:3000/`,
 
 ## Suggested Production Thoughts
 
-TODO
+• More extensive testing of models, request routes, and views
+• Conversion from sqlite3 to PostgreSQL
+• Stricter validation on models (i.e. Stopping cage max capacity from being negative)
+
+## To Be Completed
+
+• Must be able to query a listing of dinosaurs in a specific cage.
+• Remaining minor bug fixes
+
+## Known Bugs
+
+• FactoryBot and Faker issues when testing. May be related to installation issues.
+• When destroying a cage with dinosaurs in it, a FOREIGN KEY constraint failed error is thrown. This error needs to be gracefully handled.
 
 ## Technologies Used
 
@@ -107,6 +119,8 @@ TODO
 * ES6
 * rspec
 * sqlite3
+* FactoryBot
+* Faker
 
 ## License
 
