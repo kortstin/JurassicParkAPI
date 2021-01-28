@@ -106,6 +106,7 @@ TODO
 * Bulma
 * ES6
 * rspec
+* sqlite3
 
 ## License
 
