@@ -35,7 +35,7 @@ You will need the following things properly installed on your computer.
 
 In your terminal:
 * `git clone https://github.com/kortstin/JurassicParkAPI.git`
-* `cd jurasic_park_API`
+* `cd jurassic_park_API`
 * `bundle install`
 
 ## Development server
