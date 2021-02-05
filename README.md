@@ -23,6 +23,14 @@ Models:
     - diet_type - string
     - cage_id - integer
 
+  - Cage_Search
+    - name - string
+    - power_status - string
+
+  - Dinosaur_Search
+    - name - string
+    - species - string
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
@@ -79,7 +87,7 @@ Run `rails s` for a dev server. It will be servered on `http://localhost:3000/`,
 | Parameter | Sample Value | Description |
 |:----------:|:------------:|:------------|
 | name_search | North Cage | All cages with that name; searches for similar match. |
-| power_status_search | ACTIVE | All animals of that species; searches for similar match. |
+| power_status_search | ACTIVE | All cages of that power status; searches for similar match. |
 
 
 
